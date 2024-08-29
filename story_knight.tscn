@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1ovfwxf0kab1"]
+
+[ext_resource type="MeshLibrary" uid="uid://chrlg52u7i10m" path="res://resources/floor.tres" id="1_10dhc"]
+[ext_resource type="PackedScene" uid="uid://dq4cbo882tqwi" path="res://scenes/player/Player.tscn" id="2_jdwsk"]
+[ext_resource type="Texture2D" uid="uid://dyf512kxpldt" path="res://scenes/chess_board.png" id="3_w0o7p"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mw8pj"]
+sky_top_color = Color(0.32549, 0.619608, 0.835294, 1)
+sky_horizon_color = Color(0.341176, 0.717647, 0.776471, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.168627, 0.372549, 0.435294, 1)
+
+[sub_resource type="Sky" id="Sky_ngce5"]
+sky_material = SubResource("ProceduralSkyMaterial_mw8pj")
+
+[sub_resource type="Environment" id="Environment_npeib"]
+background_mode = 2
+sky = SubResource("Sky_ngce5")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_p1cbj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dadk4"]
+albedo_texture = ExtResource("3_w0o7p")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1vdg8"]
+material = SubResource("StandardMaterial3D_dadk4")
+size = Vector2(10, 10)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_npeib")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 0.737254, 0.675616, 0, -0.675616, 0.737254, 0, 0, 0)
+
+[node name="Building" type="GridMap" parent="."]
+mesh_library = ExtResource("1_10dhc")
+bake_navigation = true
+data = {
+"cells": PackedInt32Array(0, 65531, 1, 0, 65533, 1, 65534, 65531, 1)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Squares" type="GridMap" parent="."]
+cell_size = Vector3(1, 1, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_jdwsk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_p1cbj")
+
+[node name="board" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_1vdg8")
+skeleton = NodePath("../..")

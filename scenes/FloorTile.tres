@@ -1,0 +1,14 @@
+[gd_resource type="BoxMesh" load_steps=3 format=3 uid="uid://bkg72pi7hulfd"]
+
+[ext_resource type="Texture2D" uid="uid://dmnkjn4p4rj7s" path="res://chess_board.png" id="1_n76uo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_naudh"]
+albedo_texture = ExtResource("1_n76uo")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 2
+
+[resource]
+lightmap_size_hint = Vector2i(24, 36)
+material = SubResource("StandardMaterial3D_naudh")
+size = Vector3(2, 2, 2)

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b6aib406at1de"]
+
+[resource]
+resource_name = "Material - White Plastic"
+cull_mode = 2
+albedo_color = Color(1, 0.977312, 0.994328, 1)
+roughness = 0.224771

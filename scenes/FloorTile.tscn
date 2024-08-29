@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://otj27gqy8qrm"]
+
+[ext_resource type="Texture2D" uid="uid://dmnkjn4p4rj7s" path="res://chess_board.png" id="1_prmpo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l80do"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_naudh"]
+albedo_texture = ExtResource("1_prmpo")
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_uro0s"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_naudh")
+
+[node name="FloorTile" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_l80do")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("BoxMesh_uro0s")
+skeleton = NodePath("")
