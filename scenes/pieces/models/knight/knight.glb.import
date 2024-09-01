@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d3efpyy12smt4"
-path="res://.godot/imported/pawn.glb-0183c9b7fc41616eaede085ae5b5702a.scn"
+uid="uid://bkh8smvfu5wel"
+path="res://.godot/imported/knight.glb-07ea345592f2c4e87a6c1e0b17a3a792.scn"
 
 [deps]
 
-source_file="res://scenes/pieces/models/pawn.glb"
-dest_files=["res://.godot/imported/pawn.glb-0183c9b7fc41616eaede085ae5b5702a.scn"]
+source_file="res://scenes/pieces/models/knight/knight.glb"
+dest_files=["res://.godot/imported/knight.glb-07ea345592f2c4e87a6c1e0b17a3a792.scn"]
 
 [params]
 
@@ -32,10 +32,15 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
-"materials": {
-"Material - White Plastic": {
-"use_external/enabled": true,
-"use_external/path": "res://scenes/pieces/models/Material - White Plastic.tres"
+"meshes": {
+"knight_3D Chess Pack - White Knight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://scenes/pieces/models/knight/knight.res"
 }
 }
 }
